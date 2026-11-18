@@ -5,7 +5,7 @@ import { pickupPoints, store } from "@/lib/config";
 import { ShopGrid } from "@/components/ShopGrid";
 import { CountdownBoard } from "@/components/DropCountdown";
 import type { Product } from "@/lib/types";
-import { PhotoBand, SectionHead, StayInLoop, groupFarms } from "@/components/Sections";
+import { CampusSection, PhotoBand, SectionHead, StayInLoop, groupFarms } from "@/components/Sections";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +48,8 @@ export default async function Home() {
           <ShopGrid products={products} />
         </div>
       </section>
+
+      <CampusSection />
 
       <StayInLoop />
 

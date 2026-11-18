@@ -97,6 +97,80 @@ export function SectionHead({ kicker, title, aside }: { kicker: string; title: s
   );
 }
 
+/** "Made for HTU": ties the co-op to real campus life with photos from Ho Technical University. */
+export function CampusSection() {
+  const points = [
+    { title: "On campus, every Saturday", body: `Collect between ${drop.pickupWindow}, on your way to the library or back to hall.` },
+    { title: "Priced for student budgets", body: "Bulk buying from farms means your allowance stretches further." },
+    { title: "Students helping students", body: "Order by Thursday and you're splitting the bulk order with your coursemates." },
+  ];
+  return (
+    <section className="wrap mt-16 sm:mt-24">
+      <div className="grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+        <div>
+          <p className="font-hand text-2xl text-leaf">Made for HTU</p>
+          <h2 className="font-display text-3xl font-bold leading-tight tracking-tight text-forest sm:text-4xl">
+            For students at Ho Technical University
+          </h2>
+          <p className="mt-4 max-w-lg text-ink/75">
+            Between lectures, labs and group work, nobody has time to haggle at the market. So we do the farm run and
+            bring everything to campus. You just pick it up.
+          </p>
+          <ul className="mt-7 space-y-4">
+            {points.map((p) => (
+              <li key={p.title} className="flex gap-3">
+                <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-sprout text-forest">
+                  <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+                    <path d="M2.5 6.5l2.2 2L9.5 3.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="font-semibold text-ink">{p.title}</p>
+                  <p className="text-sm text-muted">{p.body}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Photo collage: students up top, campus below */}
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <figure className="relative col-span-2 overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photos/campus-students.jpg"
+              alt="A big group of Ho Technical University students cheering on campus"
+              loading="lazy"
+              className="aspect-[16/9] w-full object-cover object-[center_60%]"
+            />
+            <figcaption className="absolute bottom-3 left-3 rounded-lg bg-white/95 px-2.5 py-1 text-xs font-semibold text-forest">
+              HTU students, Ho
+            </figcaption>
+          </figure>
+          <figure className="overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photos/campus-gate.jpg"
+              alt="The Ho Technical University main gate"
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover object-[center_78%]"
+            />
+          </figure>
+          <figure className="overflow-hidden rounded-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/photos/campus-walk.jpg"
+              alt="Students walking along a path on the Ho Technical University campus"
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function StayInLoop() {
   return (
     <section className="wrap mt-12 sm:mt-16">
@@ -133,7 +207,7 @@ export function HowItWorks({ flush = false }: { flush?: boolean }) {
     {
       title: "Order by Thursday",
       body: `Fill your basket before ${drop.cutoffLabel}. No payment yet. You're reserving your share of the bulk order.`,
-      photo: "/photos/step-order.jpg",
+      photo: "/photos/campus-lab.jpg",
     },
     {
       title: "We buy from the farm",
