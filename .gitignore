@@ -1,0 +1,14 @@
+node_modules
+.next
+next-env.d.ts
+.env*.local
+# runtime order data (seed products are committed)
+data/orders.json
+.next-preview
+data/uploads/
+.neon
+
+# local-only files
+*.tsbuildinfo
+Everything You Need, All In One Hub.jpg
+.vercel
